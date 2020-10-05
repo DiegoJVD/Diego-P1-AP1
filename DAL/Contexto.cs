@@ -1,9 +1,12 @@
 
 using Microsoft.EntityFrameworkCore;
+using Diego_P1_AP1.Entidades;
 
-namespace RegistroPrestamos.DAL
+namespace Diego_P1_AP1.DAL
 {
     public class Context : DbContext{
+
+        public DbSet<Ciudad> Ciudad {get; set; }
       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

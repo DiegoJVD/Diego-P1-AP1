@@ -9,16 +9,50 @@
     <Grid>
         <StackPanel Margin="10,0,0,0">
             <!--Ciudad id-->
-            <StackPanel Orientation="Horizontal" Margin="25,10,0,0">
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label Content="Ciudad Id"/>
-                <TextBox x:Name="CiudadIdTextBox" Margin="-50,30,0,0" Width="60"  Height="27"/>
-                <Button x:Name="BuscarButton"  Margin="10,0,0,0" Width="80" Height="27" >
+                <TextBox x:Name="CiudadIdTextBox" Margin="-55,30,0,0" Width="60"  Height="27" Text= "{Binding CiudadId}"/>
+                <Button x:Name="BuscarButton"  Margin="10,30,0,0" Width="80" Height="27" >
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Imagenes/Buscar.png" Height="20"/>
                         <Label Content = "buscar"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
+
+            <!--Nombre-->
+            <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                <Label Content="Nombre" />
+                <TextBox x:Name = "NombreTextBox" Margin = "0,0,0,0" Width="210"  Height="27" Text="{Binding Nombre}"/>
+            </StackPanel>
+
+             <!--botones Nuevo, guardar y eliminar -->
+             <StackPanel Orientation="Horizontal" Margin="-5,10,0,0">
+                <!--Nuevo-->
+                <Button x:Name="NuevoButton"  Margin="10,30,0,0" Width="80" Height="27" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Imagenes/Nuevo.png" Height="20"/>
+                        <Label Content = "Nuevo"/>
+                    </StackPanel>
+                </Button>
+
+                <!--Guardar-->
+                <Button x:Name="GuardarButton"  Margin="10,30,0,0" Width="80" Height="27"  Click = "GuardarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Imagenes/Guardar.png" Height="20"/>
+                        <Label Content = "Guardar"/>
+                    </StackPanel>
+                </Button>
+
+                <!--Eliminar-->
+                <Button x:Name="EliminarButton"  Margin="10,30,0,0" Width="80" Height="27" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Imagenes/Eliminar.png" Height="20"/>
+                        <Label Content = "Eliminar"/>
+                    </StackPanel>
+                </Button>
+             </StackPanel>
+
         </StackPanel>
     </Grid>
 </Window>
