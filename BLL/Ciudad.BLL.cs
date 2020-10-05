@@ -1,4 +1,5 @@
 using Diego_P1_AP1.DAL;
+using Diego_P1_AP1.BLL;
 using System;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;

@@ -26,9 +26,9 @@ namespace Diego_P1_AP1.UI.Registro
 
         public void GuardarButton_Click(object render, RoutedEventArgs e)
         {
-           // if (!validar()){
-           //     return;
-           // }
+           if (!Validar()){
+               return;
+           }
                 
             var paso = CiudadBLL.Guardar(ciudad);
             if (paso)
@@ -51,10 +51,12 @@ namespace Diego_P1_AP1.UI.Registro
 
             Context context = new Context();
 
-            var found = CiudadBLL.Buscar(Convert.ToInt32(CiudadTextBox.Text));
+            var found  = CiudadBLL.Buscar(Convert.ToInt32(CiudadIdTextBox.Text));
 
 
-            if (found != null)
+            if (found != null){
+                this.ciudad = found;
+            }
                
             else
             {
@@ -65,6 +67,43 @@ namespace Diego_P1_AP1.UI.Registro
 
             this.DataContext = this.ciudad;
         }
+
+         private bool Validar()
+        {
+            bool Valido = true;
+            if (CiudadIdTextBox.Text.Length == 0 )
+            {
+                Valido = false;
+                MessageBox.Show("Introduzca un id e intente de nuevo", "Error al guardad", MessageBoxButton.OK);
+            }
+            if (NombreTextBox.Text.Length == 0)
+            {
+                Valido = false;
+                MessageBox.Show("Introduzca un nombre e intente de nuevo", "Error al guardad", MessageBoxButton.OK);
+            }
+
+            
+            return Valido;
+        }
+
+        private void NuevoButton_Click(object render, RoutedEventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void EliminarButton_Click(object render, RoutedEventArgs e)
+        {
+            if (CiudadBLL.Eliminar(Convert.ToInt32(CiudadIdTextBox.Text)))
+            {
+                Limpiar();
+                MessageBox.Show("Eliminado con exito");
+            }
+            else
+                 MessageBox.Show("No se pudo eliminar , por favor confirme que sea un id valido e intente de nuevo ","", MessageBoxButton.OK);
+
+        }
+
+        
 
     }
 }
