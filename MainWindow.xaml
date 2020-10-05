@@ -7,16 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+    <StackPanel>
             <!--Menu Registro-->
         <Menu Height="20" >
             <!--Submenu-->
             <MenuItem Header="Registrar">
-                <MenuItem x:Name = "rMenuItem" Header="Registrar " />
+                <MenuItem x:Name = "rCiudadesMenuItem" Header="Registrar Ciudades" Click = "rCiudadesMenuItem_CLick"/>
             </MenuItem>
             <MenuItem Header="Consultar">
                 <MenuItem x:Name = "cMenuItem" Header="Consular " />
             </MenuItem>
         </Menu>
-
+    </StackPanel>
     </Grid>
 </Window>
