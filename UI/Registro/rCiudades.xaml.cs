@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Diego_P1_AP1.Entidades;
 using Diego_P1_AP1.DAL;
 using Diego_P1_AP1.BLL;
+using Diego_P1_AP1.UI.Registro;
 
 namespace Diego_P1_AP1.UI.Registro
 {
@@ -43,6 +44,26 @@ namespace Diego_P1_AP1.UI.Registro
         {
             this.ciudad = new Ciudad();
             this.DataContext = ciudad;
+        }
+
+         private void BuscarButton_Click(object render, RoutedEventArgs e)
+        {
+
+            Context context = new Context();
+
+            var found = CiudadBLL.Buscar(Convert.ToInt32(CiudadTextBox.Text));
+
+
+            if (found != null)
+               
+            else
+            {
+                this.ciudad = new Ciudad();
+                MessageBox.Show("No encontrado, por favor confirme que sea un id valido e intente de nuevo ","", MessageBoxButton.OK);
+            }
+
+
+            this.DataContext = this.ciudad;
         }
 
     }
