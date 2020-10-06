@@ -81,6 +81,10 @@ namespace Diego_P1_AP1.UI.Registro
                 Valido = false;
                 MessageBox.Show("Introduzca un nombre e intente de nuevo", "Error al guardad", MessageBoxButton.OK);
             }
+            if(CiudadBLL.Repetido(NombreTextBox.Text)){
+                Valido = false;
+                MessageBox.Show(" Esta ciudad ya existe, introduzca un nombre diferente e intente de nuevo", "Error al guardad", MessageBoxButton.OK);
+            }
 
             
             return Valido;

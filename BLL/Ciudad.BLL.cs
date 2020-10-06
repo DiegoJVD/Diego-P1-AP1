@@ -13,7 +13,7 @@ namespace Diego_P1_AP1.BLL
     {
         public static bool Guardar(Ciudad ciudad)
         {
-            if (!Existe(ciudad.CiudadId))//si no existe insertamos
+            if (!Existe(ciudad.CiudadId) && !Repetido(ciudad.Nombre))
                 return Insertar(ciudad);
             else
                 return Modificar(ciudad);
@@ -136,6 +136,27 @@ namespace Diego_P1_AP1.BLL
             try
             {
                 encontrado = contexto.Ciudad.Any(e => e.CiudadId == id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return encontrado;
+        }
+
+        public static bool Repetido(string nombre)
+        {
+            Context contexto = new Context();
+            bool encontrado = false;
+
+            try
+            {
+                encontrado = contexto.Ciudad.Any(e => e.Nombre.Equals(nombre));
             }
             catch (Exception)
             {

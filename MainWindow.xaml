@@ -15,7 +15,7 @@
                 <MenuItem x:Name = "rCiudadesMenuItem" Header="Registrar Ciudades" Click = "rCiudadesMenuItem_CLick"/>
             </MenuItem>
             <MenuItem Header="Consultar">
-                <MenuItem x:Name = "cMenuItem" Header="Consular " />
+                <MenuItem x:Name = "cMenuItem" Header="Consular Ciudades " Click = "cCiudadesMenuItem_CLick"/>
             </MenuItem>
         </Menu>
     </StackPanel>
